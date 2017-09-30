@@ -1,0 +1,126 @@
+{
+	"variables": [],
+	"info": {
+		"name": "libros",
+		"_postman_id": "8e6b4694-cd0f-4257-0d2b-82ba8dc31d67",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "crear el libro selvatico 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/biblioteca-web/api/libros",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"el libro de la selva Volumen 1\",\r\n    \"unidadesExistentes\": 5,\r\n    \"autor\": \"autor selvatico\",\r\n    \"unidadesDisponibles\": 5,\r\n    \"numPaginas\": 190,\r\n    \"anioPublicacion\": 1980\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "obtener los libros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/biblioteca-web/api/libros",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"el libro de la selva\",\r\n    \"unidadesExistentes\": 5,\r\n    \"autor\": \"autor selvatico\",\r\n    \"unidadesDisponibles\": 5,\r\n    \"numPaginas\": 190,\r\n    \"anioPublicacion\": 1980\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar el libro con id 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/biblioteca-web/api/libros/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"el libro de la selva volumen 10\",\r\n    \"unidadesExistentes\": 155,\r\n    \"autor\": \"autor selvatico numero dos\",\r\n    \"unidadesDisponibles\": 5,\r\n    \"numPaginas\": 190,\r\n    \"anioPublicacion\": 1980\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "se borra un libro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 204\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/biblioteca-web/api/libros/1",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
